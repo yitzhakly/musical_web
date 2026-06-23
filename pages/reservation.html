@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>현재 공연중인 뮤지컬</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/reservation-data.js"></script>
+  <script defer src="../js/reservation.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+
+<body class="page">
+
+  <!-- ───────────── 상단바 ───────────────── -->
+  <header class="topbar">
+    <h1 class="logo">
+      <a href="../index.html">Oh&nbsp;My&nbsp;First&nbsp;Musical</a>
+    </h1>s
+    <button id="burger" class="burger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ──────────────── 사이드바 ─────────── -->
+  <nav id="sidemenu" class="sidemenu">
+    <ul>
+      <li><a href="all-about.html">All&nbsp;about&nbsp;Musical</a></li>
+
+      <li><a href="glossary.html">Musical&nbsp;Info.</a>
+        <ul>
+          <li><a href="glossary.html">   용어 백과</a></li>
+          <li><a href="theaters-map.html">극장 지도</a></li>
+          <li><a href="theaters.html">   극장 시야정보</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tests.html">Test</a>
+        <ul>
+          <li><a href="today-num.html">  오늘의&nbsp;넘버</a></li>
+          <li><a href="char-test.html">  뮤지컬&nbsp;인물&nbsp;테스트</a></li>
+          <li><a href="taste-test.html">  뮤지컬&nbsp;취향&nbsp;테스트</a></li>
+        </ul>
+      </li>
+
+      <li><a href="reservation.html">Reservation</a>
+        <ul>
+          <li><a href="reservation.html#now-show">   현재 공연중인 뮤지컬</a></li>
+          <li><a href="https://ticket.interpark.com" target="_blank" rel="noopener">   Interpark Ticket</a></li>
+          <li><a href="https://www.ticketlink.co.kr" target="_blank" rel="noopener">   Ticketlink</a></li>
+          <li><a href="https://ticket.yes24.com"     target="_blank" rel="noopener">   YES24 Ticket</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- ──────────────────────────────────── -->
+
+  <!-- ─────────────────── 본문 ─────────────── -->
+  <main style="padding:6rem 0;max-width:1200px;margin:auto;">
+
+    <!-- 가로 캐러셀 -->
+    <h2 id="now-show" style="padding:0 1rem 1rem;">현재 공연중인 뮤지컬</h2>
+
+    <div id="carousel" class="carousel">
+      <button id="prevBtn" class="nav prev">‹</button>
+      <button id="nextBtn" class="nav next">›</button>
+    </div>
+
+    <section style="margin-top:3rem;padding:0 1rem;">
+      <h3>목록 보기</h3>
+      <ul id="grid" class="grid"></ul>
+    </section>
+
+    <!-- 이전공연 -->
+    <section style="margin-top:3rem;padding:0 1rem;">
+      <h3>이하린의 최애 뮤지컬 <button id="toggle-prev" class="small-btn">보기</button></h3>
+      <ul id="prev-grid" class="grid" style="display:none;"></ul>
+    </section>
+
+  </main>
+
+  <!-- ─────────────── 모달 ─────────────── -->
+  <div id="m-modal" class="modal">
+    <div class="modal-box">
+      <button id="m-close">✕</button>
+      <img id="m-poster" src="" alt="poster" style="width:100%;border-radius:6px;">
+      <h3 id="m-title" style="margin-top:1rem;"></h3>
+      <p id="m-period" class="m-sub"></p>
+      <p id="m-venue"  class="m-sub"></p>
+      <p id="m-cast"   class="m-sub"></p>
+      <p id="m-synop"  style="margin-top:1rem;line-height:1.5;"></p>
+      <p style="margin-top:1rem;"><a id="m-link" href="#" target="_blank">예매 바로가기 ↗</a></p>
+    </div>
+  </div>
+</body>
+</html>

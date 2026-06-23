@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>극장 지도</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <script defer src="../js/main.js"></script>
+  <script defer src="../js/theaters-data.js"></script>
+  <script defer src="../js/theaters-map.js"></script>
+</head>
+
+<body class="page">
+
+<header class="topbar">
+  <h1 class="logo">
+    <a href="../index.html">Oh My First Musical</a>
+  </h1>
+
+  <button id="burger" class="burger" aria-label="메뉴">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav id="sidemenu" class="sidemenu">
+  <ul>
+
+    <li>
+      <a href="all-about.html">All about Musical</a>
+    </li>
+
+    <li>
+      <a href="glossary.html">Musical Info.</a>
+      <ul>
+        <li><a href="glossary.html">용어 백과</a></li>
+        <li><a href="theaters-map.html">극장 지도</a></li>
+        <li><a href="theaters.html">극장 시야정보</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="tests.html">Test</a>
+      <ul>
+        <li><a href="today-num.html">오늘의 넘버</a></li>
+        <li><a href="char-test.html">뮤지컬 인물 테스트</a></li>
+        <li><a href="taste-test.html">뮤지컬 취향 테스트</a></li>
+      </ul>
+    </li>
+
+    <li><a href="reservation.html">Reservation</a>
+      <ul>
+        <li><a href="reservation.html#now-show">  현재 공연중인 뮤지컬</a></li>
+        <li><a href="https://ticket.interpark.com" target="_blank" rel="noopener">  Interpark Ticket</a></li>
+        <li><a href="https://www.ticketlink.co.kr" target="_blank" rel="noopener">  Ticketlink</a></li>
+        <li><a href="https://ticket.yes24.com"     target="_blank" rel="noopener">  YES24 Ticket</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<main class="map-page">
+
+  <h2>서울 뮤지컬 극장 지도</h2>
+
+  <div class="map-toolbar">
+
+    <input
+      id="map-search"
+      type="search"
+      placeholder="극장 검색"
+    >
+
+    <button id="reset-map">
+      서울 전체 보기
+    </button>
+
+    <span id="count-info"></span>
+
+  </div>
+
+  <div id="map"></div>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+</body>
+</html>

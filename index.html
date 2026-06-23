@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Oh My First Musical</title>
+
+  <!-- 스타일 & 공통 스크립트 -->
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="page"> <!-- scroll-snap 컨테이너 -->
+
+  <!-- ── 상단바 ───────────────────────────────────────────── -->
+  <header class="topbar">
+    <h1 class="logo"><a href="index.html">Oh&nbsp;My&nbsp;First&nbsp;Musical</a></h1>
+
+    <button id="burger" class="burger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ── 사이드메뉴 ────────────────────────────────────────── -->
+  <nav id="sidemenu" class="sidemenu">
+    <ul>
+      <li><a href="pages/all-about.html">All&nbsp;about&nbsp;Musical</a></li>
+
+      <li><a href="pages/glossary.html">Musical&nbsp;Info.</a>
+        <ul>
+          <li><a href="pages/glossary.html">  용어&nbsp;백과</a></li>
+          <li><a href="pages/theaters-map.html">  극장&nbsp;지도</a></li>
+          <li><a href="pages/theaters.html">  극장&nbsp;시야정보</a></li>
+        </ul>
+      </li>
+
+      <li><a href="pages/tests.html">Test</a>
+        <ul>
+          <li><a href="pages/today-num.html">  오늘의&nbsp;넘버</a></li>
+          <li><a href="pages/char-test.html">  뮤지컬&nbsp;인물&nbsp;테스트</a></li>
+          <li><a href="pages/taste-test.html">  뮤지컬&nbsp;취향&nbsp;테스트</a></li>
+        </ul>
+      </li>
+
+      <li><a href="pages/reservation.html">Reservation</a>
+        <ul>
+          <li><a href="pages/reservation.html#now-show">  현재&nbsp;공연중인&nbsp;뮤지컬</a></li>
+          <li><a href="https://ticket.interpark.com" target="_blank" rel="noopener">  Interpark&nbsp;Ticket</a></li>
+          <li><a href="https://www.ticketlink.co.kr" target="_blank" rel="noopener">  Ticketlink</a></li>
+          <li><a href="https://ticket.yes24.com"     target="_blank" rel="noopener">  YES24&nbsp;Ticket</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- ── 풀스크린 메인(Hero) 1장만 사용 ────────────────────── -->
+  <section class="hero snap">
+    <article class="slide active" style="background-image:url('img/main-stage.jpg')">
+      <!-- 캡션 필요 없으면 비움 -->
+    </article>
+  </section>
+
+  <!-- ── 극장 카드 5장 ─────────────────────────────────────── -->
+  <section class="extra snap theater-card"
+           style="background:url('img/bg1.jpg') center bottom/cover no-repeat;">
+    <a href="pages/all-about.html" class="cta-pill" style="top:4rem;left:42.8rem;">All about Musical</a>
+  </section>
+
+  <section class="extra snap theater-card"
+           style="background:url('img/bg2.jpg') center bottom/cover no-repeat;">
+    <!--<a href="pages/today-num.html" class="cta-pill" style="top:-5rem;left:43.5rem;">오늘의 넘버 ↗</a>-->
+  </section>
+
+  <section class="extra snap theater-card"
+           style="background:url('img/bg3.jpg') center bottom/cover no-repeat;">
+    <a href="pages/theaters.html" class="cta-pill" style="top:-4.8rem;left:43.5rem;">극장 시야 정보 ↗</a>
+  </section>
+
+  <section class="extra snap theater-card"
+           style="background:url('img/bg4.jpg') center top/cover no-repeat;">
+    <a href="pages/reservation.html" class="cta-pill" style="top:-5rem;left:42rem;">현재 공연중인 뮤지컬 ↗</a>
+  </section>
+
+  <section class="extra snap theater-card"
+           style="background:url('img/bg5.jpg') center top/cover no-repeat;">
+    <a href="pages/glossary.html" class="cta-pill" style="top:-4rem;left:42.8rem;">뮤지컬 용어 백과 ↗</a>
+  </section>
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- ▸ 배경 음악 ------------------------------------------------ -->
+  <audio id="bgm" src="audio/overture.mp3" autoplay loop></audio>
+
+  <script>
+  /* 자동재생 차단 대비 – 첫 클릭 시 재생 */
+  /*window.addEventListener('DOMContentLoaded', () => {*/
+    const bgm = document.getElementById('bgm');
+    bgm.volume = 0.4;
+    bgm.play().catch(() => {
+      const once = () => { bgm.play(); document.removeEventListener('click', once); };
+      document.addEventListener('click', once);
+    });
+  
+  </script>
+
+</body>
+</html>
